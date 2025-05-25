@@ -1,0 +1,31 @@
+{
+  "name": "javascriptsnake",
+  "version": "1.0.0",
+  "description": "snake-game-web/\r │\r ├── package.json\r ├── app.js                  # Main Express application\r ├── .env                   # Environment variables (if needed)\r ├── README.md              # Project documentation\r │\r ├── 📁public/               # Static files served by Express\r │   ├── 📁css/\r │   │   └── styles.css      # Custom styles (Bootstrap overrides or additions)\r │   ├── 📁js/\r │   │   └── game.js         # Snake game logic using Canvas\r │   ├── 📁img/\r │   │   └── ...             # Any static images (e.g. icons, logos)\r │   └── 📁vendor/           # Optional: local Bootstrap or other third-party libraries\r │\r ├── 📁routes/\r │   └── index.js            # Main route (handles GET for game page)\r │\r ├── 📁views/                # EJS templates\r │   ├── 📁partials/\r │   │   ├── header.ejs      # Reusable header (e.g., Bootstrap navbar)\r │   │   └── footer.ejs      # Reusable footer\r │   └── index.ejs           # Main game page template with canvas element\r │\r └── 📁utils/                # Optional: utility functions\r     └── gameLogic.js        # Optional game state logic on server (e.g., scoreboards)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jordan55Dev/JavascriptSnake.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Jordan55Dev/JavascriptSnake/issues"
+  },
+  "homepage": "https://github.com/Jordan55Dev/JavascriptSnake#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "nodemon": "^3.1.10"
+  }
+}
