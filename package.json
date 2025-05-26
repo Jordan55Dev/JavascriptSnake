@@ -22,7 +22,8 @@
   "homepage": "https://github.com/Jordan55Dev/JavascriptSnake#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0"
   },
   "devDependencies": {
     "dotenv": "^16.5.0",

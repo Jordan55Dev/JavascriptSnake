@@ -1,7 +1,74 @@
 <%- include('partials/header') %>
 
-<div class="container text-center mt-5">
-    <div id="score">0</div><canvas id="gameCanvas" width="600" height="500"></canvas>
+<div class="container mt-5">
+  <!-- Score above canvas -->
+    <div class="row mb-2">
+        <div class="col-md-8">
+            <div class="d-flex" style="width: fit-content; border: 1px solid #ccc; border-radius: 5px; overflow: hidden;">
+            <div class="px-3 py-2 bg-dark text-white fw-bold">
+                Score
+            </div>
+            <div class="px-3 py-2 bg-light" id="score">
+                0
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+  <div class="row">
+    <!-- Canvas Area -->
+    <div class="col-md-8">
+      <canvas id="gameCanvas" width="500" height="500" style="border:1px solid #000;"></canvas>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="col-md-4">
+      <div class="card" style="height: 100%;">
+        <div class="card-header bg-dark text-white">Leaderboard</div>
+        <ul class="list-group list-group-flush" id="leaderboard" style="max-height: 500px; overflow-y: auto;">
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="gameOverModal" tabindex="-1" aria-labelledby="gameOverModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="gameOverForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Game Over</h5>
+        </div>
+        <div class="modal-body">
+          <p>Your score: <span id="finalScoreDisplay"></span></p>
+          <label for="playerNameInput">Enter your name:</label>
+          <input type="text" class="form-control" id="playerNameInput" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-dark">Submit Score</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="playAgainModal" tabindex="-1" aria-labelledby="playAgainModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Play Again?</h5>
+      </div>
+      <div class="modal-body">
+        Would you like to play another round?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button class="btn btn-success" id="confirmRestartBtn">Yes, Play Again</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="/js/game.js"></script>
