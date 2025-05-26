@@ -6,6 +6,15 @@ let snake = [
     {x: 110, y: 150},
 ];
 
+let snakeColor = localStorage.getItem('snakeColor') || 'lightgreen';
+
+document.getElementById('snakeColorSelect').value = snakeColor;
+
+document.getElementById('snakeColorSelect').addEventListener('change', function () {
+  snakeColor = this.value;
+  localStorage.setItem('snakeColor', snakeColor);
+});
+
 let score = 0;
 
 let dx = 10;
@@ -46,10 +55,10 @@ function clearCanvas() {
 }
 
 function drawSnakePart(snakePart) {
-    ctx.fillStyle = 'lightgreen';
-    ctx.strokeStyle = 'darkgreen';  
-    ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-    ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+  ctx.fillStyle = snakeColor;
+  ctx.strokeStyle = 'black';
+  ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+  ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
 }
 
 function drawSnake() {
@@ -200,10 +209,17 @@ function restartGame() {
   dx = 10;
   dy = 0;
   score = 0;
+  document.getElementById('startGameBtn').disabled = false;
   document.getElementById('score').innerHTML = score;
   createFood();
   if (typeof gameInterval !== 'undefined') clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, 90);
 }
 
-let gameInterval = setInterval(gameLoop, 90); //9 fps
+let gameInterval;
+
+document.getElementById('startGameBtn').addEventListener('click', () => {
+  if (typeof gameInterval !== 'undefined') clearInterval(gameInterval); // prevent double start
+  gameInterval = setInterval(gameLoop, 90); //9 fps
+  document.getElementById('startGameBtn').disabled = true; // disable after start
+});
