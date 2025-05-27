@@ -198,6 +198,12 @@ document.getElementById('confirmRestartBtn').addEventListener('click', function 
   restartGame();
 });
 
+document.getElementById('cancelRestartBtn').addEventListener('click', function () {
+  bootstrap.Modal.getInstance(document.getElementById('playAgainModal')).hide();
+  document.getElementById('startGameBtn').disabled = false;
+  restartGame();
+});
+
 function restartGame() {
   snake = [
     {x: 150, y: 150},
@@ -209,11 +215,13 @@ function restartGame() {
   dx = 10;
   dy = 0;
   score = 0;
-  document.getElementById('startGameBtn').disabled = false;
   document.getElementById('score').innerHTML = score;
+  document.getElementById('startGameBtn').disabled = false;
   createFood();
+  clearCanvas();
+  drawFood();
+  drawSnake();
   if (typeof gameInterval !== 'undefined') clearInterval(gameInterval);
-  gameInterval = setInterval(gameLoop, 90);
 }
 
 let gameInterval;
