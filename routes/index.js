@@ -30,5 +30,17 @@ router.get('/leaderboard', async (req, res) => {
   }
 });
 
+router.use((req, res) => {
+  res.status(404).render('error', {
+    errorMessage: 'Page not found (404)'
+  });
+});
+
+router.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('error', {
+    errorMessage: 'Internal server error (500)'
+  });
+});
 
 module.exports = router;
