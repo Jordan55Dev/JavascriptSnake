@@ -36,12 +36,12 @@ Below are screenshots demonstrating the key pages and functionalities of the Com
 
 * **Home Page:**
     ![Home Page](public/images/Home.png)
-
-* **Error Page:**
-    ![Error Page](public/images/Error.png)
     
 * **Game Start:**
     ![Game Start](public/images/GameStart.png)
+
+  * **Error Page:**
+    ![Error Page](public/images/Error.png)
 
 ## Online Hosting Link
 
